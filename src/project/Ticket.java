@@ -1,7 +1,7 @@
 package project;
 
 public class Ticket extends Thread{
-    int amount = 0;
+    private int amount = 0;
     private volatile boolean cancelled = false;
 
     Ticket(int amount){

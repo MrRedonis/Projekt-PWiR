@@ -52,8 +52,8 @@ public class TicketOffice extends Thread {
             addSoldTicket();
             Thread.sleep(Duration.ofSeconds(generator.nextInt(10)+5).toMillis());
         }
-        else
         this.taken = false;
+        Thread.sleep(Duration.ofSeconds(generator.nextInt(3)+2).toMillis());
     }
 
     public synchronized boolean isTaken() {
