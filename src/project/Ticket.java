@@ -31,7 +31,12 @@ public class Ticket extends Thread{
     @Override
     public void run() {
         while (!cancelled){
-            System.out.println("Ticket works!");
+            try {
+                Thread.sleep(1000);
+                System.out.println("Ticket works!");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

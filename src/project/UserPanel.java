@@ -15,7 +15,6 @@ public class UserPanel extends JPanel {
     TicketOffice T5=new TicketOffice(ticket1,10,10);
     TicketOffice T6=new TicketOffice(ticket1,10,10);
 
-
         boolean cond=false;
 
         int x=1;
@@ -29,7 +28,6 @@ public class UserPanel extends JPanel {
             Graphics2D g4 = (Graphics2D) g;
             Graphics2D g5 = (Graphics2D) g;
             Graphics2D g6 = (Graphics2D) g;
-
 
             g1.setColor(Color.BLACK);
             g1.setFont(new Font("Serif", Font.PLAIN, 24));
@@ -67,17 +65,13 @@ public class UserPanel extends JPanel {
             x+=20;
         }
 
-
         class AnimationThread extends Thread {
-
 
             boolean sus = true;
 
             public void pause() {
                 sus = true;
             }
-
-
 
             public synchronized void stoppasue() {
                 sus = false;
@@ -130,8 +124,6 @@ public class UserPanel extends JPanel {
             System.out.println("Suspend animation thread");
             anim.pause();
         }
-
-
 
         private AnimationThread anim = new AnimationThread();
         int height, width;

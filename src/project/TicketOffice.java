@@ -1,5 +1,8 @@
 package project;
 
+import java.time.Duration;
+import java.util.Random;
+
 public class TicketOffice extends Thread {
     int paper = 0;
     int ink = 0;
@@ -8,8 +11,9 @@ public class TicketOffice extends Thread {
     boolean active;
     int sold = 0;
     Ticket ticket;
+    private static final Random generator = new Random();
 
-    TicketOffice(Ticket ticket, int paper, int ink) {
+    TicketOffice(Ticket ticket, int paper, int ink){
         this.ticket = ticket;
         this.paper = paper;
         this.ink = ink;
@@ -39,10 +43,17 @@ public class TicketOffice extends Thread {
         this.paper -= 1;
     }
 
-    public synchronized void printTicket() {
-        reduceInk();
-        reducePaper();
-        addSoldTicket();
+    public synchronized void sellTicket() throws InterruptedException {
+        this.taken = true;
+        if(getInk()>0 && getPaper()>0 && ticket.getAmount()>0){
+            ticket.reduceAmount();
+            reduceInk();
+            reducePaper();
+            addSoldTicket();
+            Thread.sleep(Duration.ofSeconds(generator.nextInt(10)+5).toMillis());
+        }
+        else
+        this.taken = false;
     }
 
     public synchronized boolean isTaken() {
@@ -83,7 +94,6 @@ public class TicketOffice extends Thread {
         sus = true;
     }
 
-
     public synchronized void stoppasue() {
         sus = false;
         notify();
@@ -91,10 +101,9 @@ public class TicketOffice extends Thread {
 
     @Override
     public void run() {
-
         while (true) {
             try {
-                System.out.println("Ticket works!");
+                System.out.println("Ticket office works!");
                 sold+=1;
             } catch (Exception e) {
                 System.out.println("Błąd");
@@ -111,15 +120,11 @@ public class TicketOffice extends Thread {
                     e.printStackTrace();
                 }
             }
-
-
-            System.out.println("Działa");
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
+        }
     }
-}
-
