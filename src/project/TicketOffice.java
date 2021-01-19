@@ -70,7 +70,7 @@ public class TicketOffice extends Thread {
         this.sold += 1;
     }
 
-    boolean sus = true;
+    boolean sus = false;
 
     public void pause() {
         sus = true;
@@ -89,6 +89,7 @@ public class TicketOffice extends Thread {
                 System.out.println("Ticket works!");
 
 
+
             } catch (Exception e) {
                 System.out.println("Błąd");
                 e.printStackTrace();
@@ -105,7 +106,8 @@ public class TicketOffice extends Thread {
                 }
             }
             try {
-                Thread.sleep(1000);
+                setActive(false);
+                Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -6,7 +6,12 @@ import java.awt.*;
 public class SimulateFrame extends JFrame {
 
     private UserPanel simpanel = new UserPanel(700, 630);
+ /*   void run(){
+        simpanel.run();
+    }
 
+
+  */
 
     public SimulateFrame() throws Exception {
 
@@ -17,7 +22,7 @@ public class SimulateFrame extends JFrame {
 
         JButton start = new JButton("Start");
         JButton stop = new JButton("Stop");
-
+      //  simpanel.run();
         start.addActionListener(p -> simpanel.onStart());
 
 

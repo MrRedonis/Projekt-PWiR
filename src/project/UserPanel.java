@@ -6,14 +6,18 @@ import java.awt.*;
 
 public class UserPanel extends JPanel {
 
-    TicketOffice T1 =new TicketOffice();
-    TicketOffice T2 =new TicketOffice();
-    TicketOffice T3 =new TicketOffice();
-    TicketOffice T4 =new TicketOffice();
-    TicketOffice T5 =new TicketOffice();
-    TicketOffice T6 =new TicketOffice();
 
+/*
+    void run(){
+        T1.run();
+        T2.run();
+        T3.run();
+        T4.run();
+        T5.run();
+        T6.run();
+    }
 
+ */
 
         boolean cond=false;
 
@@ -50,6 +54,12 @@ public class UserPanel extends JPanel {
 
         class AnimationThread extends Thread {
             boolean sus = true;
+            TicketOffice T1 =new TicketOffice();
+            TicketOffice T2 =new TicketOffice();
+            TicketOffice T3 =new TicketOffice();
+            TicketOffice T4 =new TicketOffice();
+            TicketOffice T5 =new TicketOffice();
+            TicketOffice T6 =new TicketOffice();
 
             public void pause() {
                 sus = true;
@@ -65,6 +75,7 @@ public class UserPanel extends JPanel {
             public void run() {
                 while (true) {
                     try {
+                        T1.run();
                        System.out.println("blabla");
                     } catch (Exception e) {
                         System.out.println("Błąd w symulacji");
