@@ -94,6 +94,7 @@ public class TicketOffice extends Thread {
         sus = true;
     }
 
+
     public synchronized void stoppasue() {
         sus = false;
         notify();
@@ -101,10 +102,11 @@ public class TicketOffice extends Thread {
 
     @Override
     public void run() {
+
         while (true) {
             try {
                 System.out.println("Ticket office works!");
-                sold+=1;
+                this.sellTicket();
             } catch (Exception e) {
                 System.out.println("Błąd");
                 e.printStackTrace();
@@ -120,11 +122,15 @@ public class TicketOffice extends Thread {
                     e.printStackTrace();
                 }
             }
+
+
+            System.out.println("Działa");
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-        }
     }
+}
+
