@@ -95,6 +95,7 @@ public class TicketOffice extends Thread {
         while (true) {
             try {
                 System.out.println("Ticket works!");
+                sold+=1;
             } catch (Exception e) {
                 System.out.println("Błąd");
                 e.printStackTrace();

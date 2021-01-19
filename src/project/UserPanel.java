@@ -34,16 +34,34 @@ public class UserPanel extends JPanel {
             g1.setColor(Color.BLACK);
             g1.setFont(new Font("Serif", Font.PLAIN, 24));
             g1.drawString("Kasa biletowa",100,70);
+            if(T1.taken) g1.setColor(Color.RED);
+            else g1.setColor(Color.BLACK);
             g1.fillRect(50,150,50,50);
-            g2.setColor(Color.BLACK);
-            g2.fillRect(x,150,50,50);
-            g3.setColor(Color.BLACK);
+
+            for(int i=0;i<T1.sold;i++)
+            {
+                g1.setColor(Color.GRAY);
+                g1.fillRect(50,(250+i*45),50,25);
+            }
+
+            if(T2.taken) g2.setColor(Color.RED);
+            else g2.setColor(Color.BLACK);
+            g2.fillRect(150,150,50,50);
+
+            if(T3.taken) g3.setColor(Color.RED);
+            else g3.setColor(Color.BLACK);
             g3.fillRect(250,150,50,50);
-            g4.setColor(Color.BLACK);
+
+            if(T4.taken) g4.setColor(Color.RED);
+            else g4.setColor(Color.BLACK);
             g4.fillRect(350,150,50,50);
-            g5.setColor(Color.BLACK);
+
+            if(T5.taken) g5.setColor(Color.RED);
+            else g5.setColor(Color.BLACK);
             g5.fillRect(450,150,50,50);
-            g6.setColor(Color.BLACK);
+
+            if(T6.taken) g6.setColor(Color.RED);
+            else g6.setColor(Color.BLACK);
             g6.fillRect(550,150,50,50);
 
             x+=20;
