@@ -7,17 +7,14 @@ import java.awt.*;
 public class UserPanel extends JPanel {
 
 
-/*
-    void run(){
-        T1.run();
-        T2.run();
-        T3.run();
-        T4.run();
-        T5.run();
-        T6.run();
-    }
+    Ticket ticket1=new Ticket(10);
+    TicketOffice T1=new TicketOffice(ticket1,10,10);
+    TicketOffice T2=new TicketOffice(ticket1,10,10);
+    TicketOffice T3=new TicketOffice(ticket1,10,10);
+    TicketOffice T4=new TicketOffice(ticket1,10,10);
+    TicketOffice T5=new TicketOffice(ticket1,10,10);
+    TicketOffice T6=new TicketOffice(ticket1,10,10);
 
- */
 
         boolean cond=false;
 
@@ -33,12 +30,13 @@ public class UserPanel extends JPanel {
             Graphics2D g5 = (Graphics2D) g;
             Graphics2D g6 = (Graphics2D) g;
 
+
             g1.setColor(Color.BLACK);
             g1.setFont(new Font("Serif", Font.PLAIN, 24));
             g1.drawString("Kasa biletowa",100,70);
             g1.fillRect(50,150,50,50);
             g2.setColor(Color.BLACK);
-            g2.fillRect(150,150,50,50);
+            g2.fillRect(x,150,50,50);
             g3.setColor(Color.BLACK);
             g3.fillRect(250,150,50,50);
             g4.setColor(Color.BLACK);
@@ -53,13 +51,9 @@ public class UserPanel extends JPanel {
 
 
         class AnimationThread extends Thread {
+
+
             boolean sus = true;
-            TicketOffice T1 =new TicketOffice();
-            TicketOffice T2 =new TicketOffice();
-            TicketOffice T3 =new TicketOffice();
-            TicketOffice T4 =new TicketOffice();
-            TicketOffice T5 =new TicketOffice();
-            TicketOffice T6 =new TicketOffice();
 
             public void pause() {
                 sus = true;
@@ -73,10 +67,14 @@ public class UserPanel extends JPanel {
             }
 
             public void run() {
+                T1.start();
+                T2.start();
+                T3.start();
+                T4.start();
+                T5.start();
+                T6.start();
                 while (true) {
                     try {
-                        T1.run();
-                        T2.run();
                        System.out.println("blabla");
                     } catch (Exception e) {
                         System.out.println("Błąd w symulacji");

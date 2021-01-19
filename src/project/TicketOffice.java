@@ -9,7 +9,7 @@ public class TicketOffice extends Thread {
     int sold = 0;
     Ticket ticket;
 
-    TicketOffice(Ticket ticket, int paper, int ink){
+    TicketOffice(Ticket ticket, int paper, int ink) {
         this.ticket = ticket;
         this.paper = paper;
         this.ink = ink;
@@ -77,7 +77,7 @@ public class TicketOffice extends Thread {
         this.sold += 1;
     }
 
-    boolean sus = true;
+    boolean sus = false;
 
     public void pause() {
         sus = true;
@@ -91,6 +91,7 @@ public class TicketOffice extends Thread {
 
     @Override
     public void run() {
+
         while (true) {
             try {
                 System.out.println("Ticket works!");
@@ -109,11 +110,15 @@ public class TicketOffice extends Thread {
                     e.printStackTrace();
                 }
             }
+
+
+            System.out.println("Działa");
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-        }
     }
+}
+
