@@ -13,6 +13,8 @@ public class UserPanel extends JPanel {
     TicketOffice T5 =new TicketOffice();
     TicketOffice T6 =new TicketOffice();
 
+
+
         boolean cond=false;
 
         int x=1;

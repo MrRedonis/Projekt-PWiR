@@ -1,6 +1,6 @@
 package project;
 
-public class TicketOffice extends Thread{
+public class TicketOffice extends Thread {
     int paper = 0;
     int ink = 0;
     boolean taken;
@@ -24,25 +24,25 @@ public class TicketOffice extends Thread{
         return paper;
     }
 
-    public synchronized void reduceInk(){
+    public synchronized void reduceInk() {
         this.ink -= 1;
     }
 
-    public synchronized void reducePaper(){
+    public synchronized void reducePaper() {
         this.paper -= 1;
     }
 
-    public synchronized void printTicket(){
+    public synchronized void printTicket() {
         reduceInk();
         reducePaper();
         addSoldTicket();
     }
 
-    public synchronized boolean isTaken(){
+    public synchronized boolean isTaken() {
         return this.taken;
     }
 
-    public synchronized boolean isBroken(){
+    public synchronized boolean isBroken() {
         return this.broken;
     }
 
@@ -66,15 +66,49 @@ public class TicketOffice extends Thread{
         return sold;
     }
 
-    public synchronized void addSoldTicket(){
+    public synchronized void addSoldTicket() {
         this.sold += 1;
+    }
+
+    boolean sus = true;
+
+    public void pause() {
+        sus = true;
+    }
+
+
+    public synchronized void stoppasue() {
+        sus = false;
+        notify();
     }
 
     @Override
     public void run() {
-        while (this.active){
-            System.out.println("Ticket works!");
-        }
+        while (true) {
+            try {
+                System.out.println("Ticket works!");
 
+
+            } catch (Exception e) {
+                System.out.println("Błąd");
+                e.printStackTrace();
+            }
+            synchronized (this) {
+                try {
+                    if (sus) {
+                        System.out.println("Suspending");
+                        wait();
+                    }
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        }
     }
-}
