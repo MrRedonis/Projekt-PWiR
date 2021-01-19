@@ -27,11 +27,11 @@ public class TicketOffice extends Thread {
         this.paper = paper;
     }
 
-    public synchronized int getInk() {
+    public  int getInk() {
         return ink;
     }
 
-    public synchronized int getPaper() {
+    public  int getPaper() {
         return paper;
     }
 
@@ -121,7 +121,7 @@ public class TicketOffice extends Thread {
             synchronized (this) {
                 try {
                     if (sus) {
-                        System.out.println("Suspending");
+                        System.out.println("Ticket office suspend");
                         wait();
                     }
 

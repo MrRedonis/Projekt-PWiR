@@ -12,7 +12,7 @@ public class Ticket extends Thread{
         this.amount = amount;
     }
 
-    public synchronized int getAmount() {
+    public int getAmount() {
         return amount;
     }
 
