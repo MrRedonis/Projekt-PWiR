@@ -1,6 +1,8 @@
-public class Ticket {
+package project;
+
+public class Ticket extends Thread{
     int amount = 0;
-    int sold = 0;
+    private volatile boolean cancelled = false;
 
     public synchronized void setAmount(int amount) {
         this.amount = amount;
@@ -18,11 +20,14 @@ public class Ticket {
         this.amount -= 1;
     }
 
-    public synchronized int getSold() {
-        return sold;
+    public void cancell(){
+        this.cancelled = true;
     }
 
-    public synchronized void addSoldTicket(){
-        this.sold += 1;
+    @Override
+    public void run() {
+        while (!cancelled){
+            System.out.println("Ticket works!");
+        }
     }
 }

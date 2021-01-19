@@ -1,3 +1,5 @@
+package project;
+
 public class TicketOffice extends Thread{
     int paper = 0;
     int ink = 0;
