@@ -7,6 +7,13 @@ public class TicketOffice extends Thread {
     boolean broken;
     boolean active;
     int sold = 0;
+    Ticket ticket;
+
+    TicketOffice(Ticket ticket, int paper, int ink){
+        this.ticket = ticket;
+        this.paper = paper;
+        this.ink = ink;
+    }
 
     public void setInk(int ink) {
         this.ink = ink;
@@ -70,7 +77,7 @@ public class TicketOffice extends Thread {
         this.sold += 1;
     }
 
-    boolean sus = false;
+    boolean sus = true;
 
     public void pause() {
         sus = true;
@@ -87,9 +94,6 @@ public class TicketOffice extends Thread {
         while (true) {
             try {
                 System.out.println("Ticket works!");
-
-
-
             } catch (Exception e) {
                 System.out.println("Błąd");
                 e.printStackTrace();
@@ -106,8 +110,7 @@ public class TicketOffice extends Thread {
                 }
             }
             try {
-                setActive(false);
-                Thread.sleep(2000);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

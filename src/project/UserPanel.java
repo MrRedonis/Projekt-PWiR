@@ -76,6 +76,7 @@ public class UserPanel extends JPanel {
                 while (true) {
                     try {
                         T1.run();
+                        T2.run();
                        System.out.println("blabla");
                     } catch (Exception e) {
                         System.out.println("Błąd w symulacji");
