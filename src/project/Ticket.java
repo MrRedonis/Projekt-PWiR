@@ -4,6 +4,10 @@ public class Ticket extends Thread{
     int amount = 0;
     private volatile boolean cancelled = false;
 
+    Ticket(int amount){
+        this.amount = amount;
+    }
+
     public synchronized void setAmount(int amount) {
         this.amount = amount;
     }

@@ -1,12 +1,19 @@
 package project;
 
-public class TicketOffice extends Thread {
+public class TicketOffice extends Thread{
     int paper = 0;
     int ink = 0;
     boolean taken;
     boolean broken;
     boolean active;
     int sold = 0;
+    Ticket ticket;
+
+    TicketOffice(Ticket ticket, int paper, int ink){
+        this.ticket = ticket;
+        this.paper = paper;
+        this.ink = ink;
+    }
 
     public void setInk(int ink) {
         this.ink = ink;
@@ -24,25 +31,25 @@ public class TicketOffice extends Thread {
         return paper;
     }
 
-    public synchronized void reduceInk() {
+    public synchronized void reduceInk(){
         this.ink -= 1;
     }
 
-    public synchronized void reducePaper() {
+    public synchronized void reducePaper(){
         this.paper -= 1;
     }
 
-    public synchronized void printTicket() {
+    public synchronized void printTicket(){
         reduceInk();
         reducePaper();
         addSoldTicket();
     }
 
-    public synchronized boolean isTaken() {
+    public synchronized boolean isTaken(){
         return this.taken;
     }
 
-    public synchronized boolean isBroken() {
+    public synchronized boolean isBroken(){
         return this.broken;
     }
 
@@ -66,16 +73,15 @@ public class TicketOffice extends Thread {
         return sold;
     }
 
-    public synchronized void addSoldTicket() {
+    public synchronized void addSoldTicket(){
         this.sold += 1;
     }
 
-    boolean sus = true;
+    boolean sus = false;
 
     public void pause() {
         sus = true;
     }
-
 
     public synchronized void stoppasue() {
         sus = false;
@@ -87,8 +93,6 @@ public class TicketOffice extends Thread {
         while (true) {
             try {
                 System.out.println("Ticket works!");
-
-
             } catch (Exception e) {
                 System.out.println("Błąd");
                 e.printStackTrace();
@@ -99,7 +103,6 @@ public class TicketOffice extends Thread {
                         System.out.println("Suspending");
                         wait();
                     }
-
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -110,5 +113,5 @@ public class TicketOffice extends Thread {
                 e.printStackTrace();
             }
         }
-        }
     }
+}
