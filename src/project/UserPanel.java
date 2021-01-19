@@ -28,9 +28,7 @@ public class UserPanel extends JPanel {
                 sus = true;
             }
 
-            public void addCar() throws Exception {
-                data.addCars(50);
-            }
+
 
             public synchronized void stoppasue() {
                 sus = false;
@@ -40,7 +38,7 @@ public class UserPanel extends JPanel {
             public void run() {
                 while (true) {
                     try {
-                        data.simulate();
+                       System.out.println("blabla");
                     } catch (Exception e) {
                         System.out.println("Błąd w symulacji");
                         e.printStackTrace();
@@ -78,10 +76,7 @@ public class UserPanel extends JPanel {
             anim.pause();
         }
 
-        void onPlus() throws Exception {
-            anim.addCar();
-            System.out.println("Add car");
-        }
+
 
         private AnimationThread anim = new AnimationThread();
         int height, width;
