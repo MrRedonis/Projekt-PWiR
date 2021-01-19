@@ -49,8 +49,8 @@ public class TicketOffice extends Thread {
             ticket.reduceAmount();
             reduceInk();
             reducePaper();
-            addSoldTicket();
             Thread.sleep(Duration.ofSeconds(generator.nextInt(10)+5).toMillis());
+            addSoldTicket();
         }
         this.taken = false;
         Thread.sleep(Duration.ofSeconds(generator.nextInt(3)+2).toMillis());
@@ -94,6 +94,13 @@ public class TicketOffice extends Thread {
         sus = true;
     }
 
+    public boolean isInkEmpty(){
+        return this.getInk() == 0;
+    }
+
+    public boolean isPaperEmpty(){
+        return this.getPaper() == 0;
+    }
 
     public synchronized void stoppasue() {
         sus = false;
