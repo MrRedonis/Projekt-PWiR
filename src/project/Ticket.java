@@ -1,3 +1,5 @@
+package project;
+
 public class Ticket {
     int amount = 0;
     int sold = 0;

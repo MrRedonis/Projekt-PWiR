@@ -1,6 +1,8 @@
+package  project;
 public class TicketOffice {
     int paper = 0;
     int ink = 0;
+
 
     public void setInk(int ink) {
         this.ink = ink;
