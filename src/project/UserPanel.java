@@ -8,13 +8,13 @@ import java.util.ArrayList;
 public class UserPanel extends JPanel {
 
 
-    Ticket ticket1=new Ticket(30);
-    TicketOffice T1=new TicketOffice(ticket1,2,1);
-    TicketOffice T2=new TicketOffice(ticket1,5,10);
-    TicketOffice T3=new TicketOffice(ticket1,10,4);
-    TicketOffice T4=new TicketOffice(ticket1,3,10);
-    TicketOffice T5=new TicketOffice(ticket1,10,2);
-    TicketOffice T6=new TicketOffice(ticket1,10,10);
+    Ticket ticket1=new Ticket(35);
+    TicketOffice T1=new TicketOffice(ticket1,5,5);
+    TicketOffice T2=new TicketOffice(ticket1,6,5);
+    TicketOffice T3=new TicketOffice(ticket1,5,6);
+    TicketOffice T4=new TicketOffice(ticket1,6,5);
+    TicketOffice T5=new TicketOffice(ticket1,5,6);
+    TicketOffice T6=new TicketOffice(ticket1,7,10);
     ArrayList<TicketOffice> ticketOffices = new ArrayList<TicketOffice>();
         boolean cond=false;
 
@@ -208,6 +208,63 @@ public class UserPanel extends JPanel {
         System.out.println("Start T6");
         T6.stoppasue();
     }
+
+    void onStopT5()
+    {
+        System.out.println("Stop T5");
+        T5.pause();
+    }
+
+    void onStartT5()
+    {
+        System.out.println("Start T5");
+        T5.stoppasue();
+    }
+    void onStopT4()
+    {
+        System.out.println("Stop T4");
+        T4.pause();
+    }
+
+    void onStartT4()
+    {
+        System.out.println("Start T4");
+        T4.stoppasue();
+    }
+    void onStopT3()
+    {
+        System.out.println("Stop T3");
+        T3.pause();
+    }
+
+    void onStartT3()
+    {
+        System.out.println("Start T3");
+        T3.stoppasue();
+    }
+    void onStopT2()
+    {
+        System.out.println("Stop T2");
+        T2.pause();
+    }
+
+    void onStartT2()
+    {
+        System.out.println("Start T2");
+        T2.stoppasue();
+    }
+    void onStopT1()
+    {
+        System.out.println("Stop T1");
+        T1.pause();
+    }
+
+    void onStartT1()
+    {
+        System.out.println("Start T1");
+        T1.stoppasue();
+    }
+
 
         private AnimationThread anim = new AnimationThread();
         int height, width;
