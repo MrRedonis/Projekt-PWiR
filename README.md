@@ -1,1 +1,1 @@
-# Symulacja ruchu samochodów osobowych na I obwodnicy krakowa
+# Symulacja ruchu samochodów osobowych na I obwodnicy Krakowa.
